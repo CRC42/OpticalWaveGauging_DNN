@@ -21,7 +21,7 @@ from imageio import imread
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1' ##use CPU
+os.environ['CUDA_VISIBLE_DEVICES'] = '0' ##use CPU
 from utils import *
 
 #==============================================================	
@@ -47,10 +47,10 @@ if __name__ == '__main__':
     #==============================================================
     ## user inputs
     with open(os.getcwd()+os.sep+'config'+os.sep+'config_test.json') as f:    
-	    config = json.load(f)
+        config = json.load(f)
 
     # config variables
-    im_size    = int(config["im_size"])
+    im_size = int(config["im_size"])
     category = config["category"] 
     input_csv_file = config["input_csv_file"]   
     weights_path = config["weights_path"]
@@ -90,5 +90,5 @@ if __name__ == '__main__':
        ax1.set_ylabel('Estimated T (s)')    
     plt.savefig(image_direc.split(os.sep)[0]+'_test_model_'+category+'.png', dpi=300, bbox_inches='tight')
     plt.close('all')    
-	
+    
 

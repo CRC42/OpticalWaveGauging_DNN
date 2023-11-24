@@ -1,7 +1,7 @@
 {
   "samplewise_std_normalization" : true,
   "samplewise_center"  : true,
-  "weights_path" : "waveheight_weights_model1_16batch.best.nearshore.hdf5",
+  "weights_path" : "im128/res/200epoch/H/model1/batch16/waveheight_weights_model1_16batch.best.nearshore.hdf5",
   "input_csv_file"     : "Nearshore-Training-Oblique-cam2-snap.csv", 
   "category"           : "H",
   "im_size"            : 128,
