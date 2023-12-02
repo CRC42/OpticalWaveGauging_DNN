@@ -21,7 +21,7 @@ from imageio import imread
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '0' ##use CPU
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1' ##use CPU
 from utils import *
 
 #==============================================================	
