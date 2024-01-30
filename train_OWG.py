@@ -27,26 +27,34 @@ from sklearn.model_selection import train_test_split
 os.environ['CUDA_VISIBLE_DEVICES'] = '0' ##use GPU. 0=first, 1=second, etc
 
 from utils import *
-from tensorflow.keras.applications.mobilenet import MobileNet
-from tensorflow.keras.applications.inception_v3 import InceptionV3
-from tensorflow.keras.applications.inception_resnet_v2 import InceptionResNetV2
 
 ## the original implementation used MobileNetV2
 ## however, for an unknown reason, keras implementation of MobileNetV2 in Tensorflow 2 is not giving the same result as in Tensorflow 1
 ## so below I have replaced MobileNetV2 with DenseNet201 which is comparable accuracy
 #from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
-from tensorflow.keras.applications.densenet import DenseNet201
-
-from tensorflow.keras.layers import GlobalAveragePooling2D, Dense, Dropout, Flatten, BatchNormalization
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 import tensorflow as tf
 
 #==============================================================	
 ## script starts here
 if __name__ == '__main__':
+
+    MobileNet = tf.keras.applications.MobileNet
+    InceptionV3 = tf.keras.applications.InceptionV3
+    InceptionResNetV2 = tf.keras.applications.InceptionResNetV2
+    DenseNet201 = tf.keras.applications.DenseNet201
+
+    GlobalAveragePooling2D = tf.keras.layers.GlobalAveragePooling2D
+    Dense = tf.keras.layers.Dense
+    Dropout = tf.keras.layers.Dropout
+    Flatten = tf.keras.layers.Flatten
+    BatchNormalization = tf.keras.layers.BatchNormalization
+
+    Sequential = tf.keras.models.Sequential
+    ModelCheckpoint = tf.keras.callbacks.ModelCheckpoint
+    EarlyStopping = tf.keras.callbacks.EarlyStopping
+    ReduceLROnPlateau = tf.keras.callbacks.ReduceLROnPlateau
+    ImageDataGenerator = tf.keras.preprocessing.image.ImageDataGenerator
 
     # start time
     print ("start time - {}".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M")))
@@ -249,6 +257,8 @@ if __name__ == '__main__':
             print ("[INFO] Testing optical wave gauge")
                     
             if category=='zscore':
+                div = 1
+                mean = 0
                 # or if the model predicts zscores - recover value using pop. mean and standard dev.			
                 pred_Y = div*np.squeeze(OWG.predict(test_X, batch_size = batch_size, verbose = True))+mean
                 if (prc_lower_withheld>0) | (prc_upper_withheld>0):	

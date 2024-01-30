@@ -12,12 +12,14 @@
 
 # import libraries
 import os, requests
+import sys
 import numpy as np
 import pandas as pd
-from tensorflow.keras.metrics import mean_absolute_error
-from tensorflow.keras.models import model_from_json
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import tensorflow as tf
+mean_absolute_error = tf.keras.metrics.mean_absolute_error
+model_from_json = tf.keras.models
+image = tf.keras.preprocessing
+ImageDataGenerator = tf.keras.preprocessing.image.ImageDataGenerator
 
 # get a keras image data generator with no augmentation
 # but scale the images according to samplewise_std_normalization and samplewise_center
