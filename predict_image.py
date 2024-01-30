@@ -16,7 +16,7 @@ import sys, getopt, os
 import numpy as np 
 import json
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '0' ##use CPU
+os.environ['CUDA_VISIBLE_DEVICES'] = '0' ##use gpu0
 from utils import *
 
 #==============================================================	
