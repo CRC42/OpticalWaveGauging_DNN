@@ -45,10 +45,10 @@ if __name__ == '__main__':
     #image_path = 'snap_images/data/1516401000.cx.snap.jpg' #H = 2.33
 
     with open(os.getcwd()+os.sep+'config'+os.sep+'config_test.json') as f:    
-	    config = json.load(f)
+       config = json.load(f)
 
     # config variables
-    im_size    = int(config["im_size"])
+    im_size = int(config["im_size"])
     category = config["category"] 
     weights_path = config["weights_path"]
     samplewise_std_normalization = config["samplewise_std_normalization"]
